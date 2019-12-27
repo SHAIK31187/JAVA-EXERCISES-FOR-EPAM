@@ -1,0 +1,29 @@
+public class Main extends Exception
+{
+    private static int accno[]={1001,1002,1003,1004,1005};
+    private static String accname[]={"aa","bb","cc","dd","ee"};
+    private static int accbal[]={10000,21000,5000,400,66666};
+    Main(String str)
+    {
+        super(str);
+    }
+	public static void main(String[] args) {
+		try{
+		    System.out.println("accno"+"\t"+"accname"+"\t"+"accbal");
+		    for(int i=0;i<5;i++)
+		    {
+		        System.out.println(accno[i]+"\t"+accname[i]+"\t"+accbal[i]);
+		        if(accbal[i]<1000)
+		        {
+		            Main me = new Main("BALANCE IS LESS THAN 1000");
+		            throw me;
+		        }
+		    }
+		}
+		catch(Main me){
+		    me.printStackTrace();
+		    
+		}
+		
+	}
+}
